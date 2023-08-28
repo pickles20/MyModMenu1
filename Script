@@ -1,0 +1,26 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Private Hacks", "DarkTheme")
+
+-- Main
+local Main = Window:NewTab("Main")
+local MainSection = Main:NewSection("Main")
+
+
+
+MainSection:NewToggle("AutoClick", "AutoClicker", function(state)
+    if state then
+       getgenv().farmer = true;
+while wait() do
+     if getgenv().farmer == true then
+         game:GetService("ReplicatedStorage")["events-shared/network@GlobalEvents"].placeBlock:FireServer()
+    end
+end)
+    else
+       getgenv().farmer = false;
+while wait() do
+     if getgenv().farmer == true then
+         game:GetService("ReplicatedStorage")["events-shared/network@GlobalEvents"].placeBlock:FireServer()
+    end
+end)
+    end
+end)
